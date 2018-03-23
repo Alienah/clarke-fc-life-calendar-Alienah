@@ -8,7 +8,7 @@ class Calendar extends React.Component {
     <ul className="pokemon__list">
       {
         this.props.moodsOfDays.sort(function(a,b) {
-        return a.date - b.date;}).map(
+          return new Date(a.date) - new Date(b.date);}).map(
           (mood) =>
             <li key={mood.date}>
               <CalendarCard

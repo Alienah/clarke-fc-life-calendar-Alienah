@@ -1,5 +1,4 @@
 import React from 'react';
-import Calendar from './Calendar';
 import { Link } from 'react-router-dom';
 
 class Editor extends React.Component{
