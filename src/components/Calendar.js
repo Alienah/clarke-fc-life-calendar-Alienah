@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CalendarCard from './CalendarCard';
 
 class Calendar extends React.Component {
@@ -23,7 +24,9 @@ class Calendar extends React.Component {
   render () {
     return (
       <div>
-        <button type="button">+</button>
+        <Link className="item-link" to='/'>
+          <button type="button">+</button>
+        </Link>
         {this.paintCalendar()}
       </div>
     );

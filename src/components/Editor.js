@@ -1,5 +1,6 @@
 import React from 'react';
 import Calendar from './Calendar';
+import { Link } from 'react-router-dom';
 
 class Editor extends React.Component{
   render() {
@@ -33,8 +34,12 @@ class Editor extends React.Component{
             </label>
             <input type="text" placeholder="¿Por qué es un buen día?" onChange={this.props.handleOnChangeMsg}/>
           </div>
-          <button onClick={this.props.addNewMood} className="btn btn--save" type="submit">Guardar</button>
-          <button className="btn btn--save" type="button">Cancelar</button>
+          <button onClick={this.props.addNewMood} className="btn btn--save" type="submit"><Link className="item-link" to='/calendar'>Guardar</Link></button>
+
+
+          <Link className="item-link" to='/calendar'>
+            <button className="btn btn--save" type="button">Cancelar</button>
+          </Link>
         </form>
       </div>
     );

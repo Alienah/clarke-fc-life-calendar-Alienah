@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Editor from './Editor';
 import Calendar from './Calendar';
 // import logo from './logo.svg';
@@ -78,20 +79,28 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 className="App-title">¿Qué tal tu día?</h1>
         </header>
-        <Editor
-          moodsOfDays = {this.state.moodsOfDays}
-          moodsAdded = {this.state.moodsAdded}
-          dateValue = {this.state.dateValue}
-          moodValue = {this.state.moodValue}
-          msgValue = {this.state.msgValue}
-          handleOnChangeDate = {this.handleOnChangeDate}
-          handleOnClickMood = {this.handleOnClickMood}
-          handleOnChangeMsg = {this.handleOnChangeMsg}
-          addNewMood = {this.addNewMood}
-        />
-        <Calendar
-          moodsOfDays = {this.state.moodsOfDays}
-        />
+        <Switch>
+          <Route exact path='/' render={() =>
+            <Editor
+              moodsOfDays = {this.state.moodsOfDays}
+              moodsAdded = {this.state.moodsAdded}
+              dateValue = {this.state.dateValue}
+              moodValue = {this.state.moodValue}
+              msgValue = {this.state.msgValue}
+              handleOnChangeDate = {this.handleOnChangeDate}
+              handleOnClickMood = {this.handleOnClickMood}
+              handleOnChangeMsg = {this.handleOnChangeMsg}
+              addNewMood = {this.addNewMood}
+            />
+          }/>
+          <Route path='/calendar' render={(props) =>
+            <Calendar
+              moodsOfDays = {this.state.moodsOfDays}
+            />
+          }/>
+        </Switch>
+
+
       </div>
     );
   }
