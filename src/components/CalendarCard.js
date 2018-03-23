@@ -6,9 +6,11 @@ class CalendarCard extends React.Component {
   render () {
     return (
       <div>
-        <div className="face-image-container" title={this.props.date}>{this.props.mood === 'smile'? <img className="face-image" src={Smile} alt={this.props.mood}/> : <img className="face-image" src={Sad} alt={this.props.mood}/>} 
+        <div className="face-image-container" title={this.props.date}>{this.props.mood === 'smile'? <img className="face-image" src={Smile} alt={this.props.mood}/> : <img className="face-image" src={Sad} alt={this.props.mood}/>}
         </div>
-
+        <div className="details-container">
+          {this.props.message !== ''? <p className="details">{this.props.message}</p> : ''}
+        </div>
       </div>
     );
   }

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CalendarCard from './CalendarCard';
+import Plus from '../images/plus.png';
 
 class Calendar extends React.Component {
   paintCalendar () {
     return (
-    <ul className="pokemon__list">
+    <ul className="calendar__list">
       {
         this.props.moodsOfDays.sort(function(a,b) {
           return new Date(a.date) - new Date(b.date);}).map(
@@ -23,11 +24,11 @@ class Calendar extends React.Component {
   }
   render () {
     return (
-      <div>
-        <Link className="item-link" to='/'>
-          <button type="button">+</button>
-        </Link>
-        {this.paintCalendar()}
+      <div className="container">
+        <div className="calendar-page">
+          <Link className="item-link btn" to='/'><img src={Plus} alt="To editor button"/> </Link>
+          {this.paintCalendar()}
+        </div>
       </div>
     );
   }

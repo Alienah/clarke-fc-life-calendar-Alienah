@@ -1,0 +1,16 @@
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: $radius;
+  border-style: none;
+  background: $colorYellow;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover{
+    background: $colorBlueLight;
+    color: $colorLight;
+    text-transform: uppercase;
+  }
+}

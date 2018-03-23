@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Editor from './Editor';
 import Calendar from './Calendar';
-// import logo from './logo.svg';
 
 class App extends Component {
   constructor (props) {
@@ -68,16 +67,16 @@ class App extends Component {
       }
     )
     this.setState({
-      moodsOfDays: moodsAdded
+      moodsOfDays: moodsAdded,
+      msgValue: ''
     })
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h1 className="App-title">¿Qué tal tu día?</h1>
+        <header className="app__header">
+          <h1 className="app__title">¿Qué tal tu día?</h1>
         </header>
         <Switch>
           <Route exact path='/' render={() =>
@@ -99,8 +98,6 @@ class App extends Component {
             />
           }/>
         </Switch>
-
-
       </div>
     );
   }

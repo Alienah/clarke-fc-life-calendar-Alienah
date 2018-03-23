@@ -1,11 +1,10 @@
 // core
 
 @import 'core/variables';
-// @import 'core/mixins';
+@import 'core/mixins';
 
 // layout
 
-// @import 'layout/header';
 @import 'layout/index';
 
 
@@ -14,3 +13,4 @@
 @import 'components/app';
 @import 'components/calendar';
 @import 'components/editor';
+@import 'components/buttons';

@@ -1,6 +1,52 @@
+.container{
+  display: flex;
+  justify-content: center;
+  min-height: 70vh;
+}
+.edition__form, .calendar-page{
+  @include flexColumnBetween();
+  align-items: flex-start;
+  padding: 60px;
+  width: 60%;
+
+}
+.form__section{
+  width: 100%;
+  @include flexColumnBetween();
+}
+.input-text{
+  margin: 15px 0;
+  border-radius: $radius;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  color: grey;
+  font-size: 14px;
+}
+.section__options{
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.sections__item{
+  margin: 0 20px 0 0;
+}
 .visible {
-  display: block;
+  display: flex;
 }
 .invisible {
   display: none;
+}
+.item-link{
+  text-decoration: none;
+  color: black;
+}
+.link--save{
+  padding: 10px 40%;
+  text-decoration: none;
+  color: black;
+  &:hover{
+    color:$colorLight;
+  }
 }
