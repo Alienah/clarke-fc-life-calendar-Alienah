@@ -5,45 +5,71 @@ class Form extends React.Component{
     super(props);
 
     this.handleOnChangeDate = this.handleOnChangeDate.bind(this);
-    this.handleOnClickState = this.handleOnClickState.bind(this);
+    this.handleOnClickMood = this.handleOnClickMood.bind(this);
     this.handleOnChangeMsg = this.handleOnChangeMsg.bind(this);
+    this.add = this.add.bind(this);
 
     this.state = {
+      moodsOfDays: [],
+      moodsAdded:[],
       dateValue: '',
-      stateValue: '',
-      msgValue: ''
+      moodValue: '',
+      msgValue: '',
     }
+  }
+  componentWillMount () {
+    localStorage.getItem('jsonData') && this.setState({
+      moodsOfDays: JSON.parse(localStorage.getItem('jsonData'))
+    })
+  }
+
+  componentWillUpdate(){
+    let jsonData = [];
+    jsonData = this.state.moodsAdded;
+
+    localStorage.setItem('jsonData', JSON.stringify(jsonData) );
+  }
+
+  add (e) {
+    e.preventDefault();
+    let moodsAdded = this.state.moodsAdded;
+
+    moodsAdded.push(
+      {
+        date: this.state.dateValue,
+        mood: this.state.moodValue,
+        message: this.state.msgValue
+      }
+    )
+    this.setState({
+      moodsOfDays: moodsAdded
+    })
+    console.log(this.state.list);
   }
 
   handleOnChangeDate (e) {
     const dateValue = e.target.value;
-
     this.setState({
       dateValue: dateValue
     })
-
   }
 
-  handleOnClickState (e) {
-    const stateValue = e.target.value;
-
+  handleOnClickMood (e) {
+    const moodValue = e.target.value;
     this.setState({
-      stateValue: stateValue
+      moodValue: moodValue
     })
-
   }
 
   handleOnChangeMsg (e) {
     const msgValue = e.target.value;
-
     this.setState({
       msgValue: msgValue
     })
-
   }
 
   render() {
-
+    console.log(this.state.moodsOfDays);
     return (
       <div>
         <form className="edition__form">
@@ -60,11 +86,11 @@ class Form extends React.Component{
             <ul className="section__options">
               <li>
                 <label className="section__label" htmlFor="smile">
-                  <input type="radio" value="smile" id="smile" name="options" onClick={this.handleOnClickState}/> :)</label>
+                  <input type="radio" value="smile" id="smile" name="options" onClick={this.handleOnClickMood}/> :)</label>
               </li>
               <li>
                 <label className="section__label" htmlFor="sad">
-                  <input type="radio" value="sad" id="sad" name="options" onClick={this.handleOnClickState}/> :(</label>
+                  <input type="radio" value="sad" id="sad" name="options" onClick={this.handleOnClickMood}/> :(</label>
               </li>
             </ul>
           </div>
@@ -74,7 +100,7 @@ class Form extends React.Component{
             </label>
             <input type="text" placeholder="¿Por qué es un buen día?" onChange={this.handleOnChangeMsg}/>
           </div>
-          <button className="btn btn--save" type="submit">Guardar</button>
+          <button onClick={this.add} className="btn btn--save" type="submit">Guardar</button>
           <button className="btn btn--save" type="button">Cancelar</button>
         </form>
       </div>
