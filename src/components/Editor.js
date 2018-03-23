@@ -2,28 +2,7 @@ import React from 'react';
 import Calendar from './Calendar';
 
 class Editor extends React.Component{
-  
-  paint () {
-    return (
-    <ul className="pokemon__list">
-      {
-        this.props.moodsOfDays.sort(function(a,b) {
-        return a.date - b.date;}).map(
-          (mood) =>
-            <li key={mood.date}>
-              <Calendar
-                date={mood.date}
-                mood={mood.mood}
-                message= {mood.message}
-              />
-            </li>
-        )
-      }
-    </ul>)
-  }
-
   render() {
-
     return (
       <div>
         <form className="edition__form">
@@ -57,7 +36,6 @@ class Editor extends React.Component{
           <button onClick={this.props.addNewMood} className="btn btn--save" type="submit">Guardar</button>
           <button className="btn btn--save" type="button">Cancelar</button>
         </form>
-        {this.paint()}
       </div>
     );
   }

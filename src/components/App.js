@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Editor from './Editor';
+import Calendar from './Calendar';
 // import logo from './logo.svg';
 
 class App extends Component {
@@ -68,9 +69,7 @@ class App extends Component {
     this.setState({
       moodsOfDays: moodsAdded
     })
-
   }
-
 
   render() {
     return (
@@ -89,6 +88,9 @@ class App extends Component {
           handleOnClickMood = {this.handleOnClickMood}
           handleOnChangeMsg = {this.handleOnChangeMsg}
           addNewMood = {this.addNewMood}
+        />
+        <Calendar
+          moodsOfDays = {this.state.moodsOfDays}
         />
       </div>
     );
