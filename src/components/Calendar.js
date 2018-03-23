@@ -23,6 +23,7 @@ class Calendar extends React.Component {
   render () {
     return (
       <div>
+        <button type="button">+</button>
         {this.paintCalendar()}
       </div>
     );
