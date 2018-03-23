@@ -6,3 +6,9 @@ body {
 .face-image {
   height: 80px;
   width: 80px; }
+
+.visible {
+  display: block; }
+
+.invisible {
+  display: none; }

@@ -27,7 +27,7 @@ class Editor extends React.Component{
               </li>
             </ul>
           </div>
-          <div className="form__section">
+          <div className={`form__section ${ this.props.moodValue === 'smile'? 'visible' : 'invisible' }`}>
             <label className="section__label">
               Mensaje:
             </label>
